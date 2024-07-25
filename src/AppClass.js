@@ -24,6 +24,7 @@ export default class AppClass extends Component {
       computerSelect: null,
       result: ""
     };
+    console.log("constructor", constructor);
   }
 
   play = (userChoice) => {
@@ -33,6 +34,7 @@ export default class AppClass extends Component {
       computerSelect: computerChoice,
       result: this.judgement(choice[userChoice], computerChoice)
     });
+    console.log("increase function", this.setState);
   };
   //랜덤한 숫자
 
@@ -55,7 +57,16 @@ export default class AppClass extends Component {
       return computer.name === "Rock" ? "win" : "lose";
     }
   };
+  componentDidMount() {
+    //apicall
+    console.log("componentDidMount");
+  }
+
+  componentDidUpdate() {
+    console.log("componentDidUpdate", this.state);
+  }
   render() {
+    console.log("render");
     return (
       <div>
         <div className="stars"></div>
