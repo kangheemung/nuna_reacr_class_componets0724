@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BoxClass from "./BoxClass";
+import "./App.css";
 export default class AppClass extends Component {
   constructor(props) {
     super(props);
