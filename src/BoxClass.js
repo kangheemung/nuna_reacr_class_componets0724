@@ -1,39 +1,36 @@
 import React, { Component } from "react";
 
-class BoxClass extends Component {
-  constructor(props) {
-    super(props);
-    let result;
-
-    if (
-      props.title === "Computer" &&
-      props.result !== "tie" &&
-      props.result !== ""
-    ) {
-      result = props.result === "win" ? "lose" : "win";
-    } else {
-      result = props.result;
-    }
-    if (props.title === "Computer") {
-      console.log("computer", result);
-    }
-
-    this.state = {
-      result: result
-    };
+export default class BoxClass extends Component {
+  constructor() {
+    super();
+    this.result = "";
   }
+  getResult = () => {
+    if (
+      this.props.title === "Computer" &&
+      this.props.result !== "tie" &&
+      this.props.result !== ""
+    ) {
+      this.result = this.props.result === "win" ? "lose" : "win";
+    } else {
+      this.result = this.props.result;
+    }
+  };
 
   render() {
-    const { title, item } = this.props;
+    this.getResult();
     return (
-      <div className={`box ${this.state.result}`}>
-        <h1>{title}</h1>
-        <h2 data-testid="item-name">{item && item.name}</h2>
-        <img className="item-img" src={item && item.img} />
-        <h1>{this.state.result}</h1>
+      <div className={`box ${this.result}`}>
+        <h1>{this.props.title}</h1>
+        <h2 data-test id="item-name">
+          {this.props.item && this.props.item.name}
+        </h2>
+        <img
+          className="item-img"
+          src={this.props.item && this.props.item.img}
+        />
+        <h1>{this.result}</h1>
       </div>
     );
   }
 }
-
-export default BoxClass;

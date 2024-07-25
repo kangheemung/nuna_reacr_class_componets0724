@@ -3,7 +3,7 @@ import './App.css';
 
 function App() {
   let counter = 0;
-  const [counter2, setCounter2] = useState(0);
+nst [counter2, setCounter2] = useState(0);
 
   const increment = () => {
     counter = counter + 1; // This line won't update the state or re-render the component
